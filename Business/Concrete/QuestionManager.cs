@@ -31,7 +31,7 @@ namespace Business.Concrete
         //public void Delete(Question question)
         //{
         //    _questionDal.Delete(question);
-        //}        
+        //}
 
         //public void Update(Question question)
         //{
