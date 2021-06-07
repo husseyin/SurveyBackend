@@ -13,28 +13,28 @@ namespace SurveyApi.Controllers
         IAnswerService answerService = new AnswerManager(new EfAnswerDal());
 
         [HttpGet]
-        [Route("getall")]
+        [ActionName("getall")]
         public IEnumerable<Answer> GetAll()
         {
             return answerService.GetAll();
         }
 
         //[HttpPost]
-        //[Route("add")]
+        //[ActionName("add")]
         //public void Add(Answer answer)
         //{
         //    answerService.Add(answer);
         //}
 
         //[HttpDelete]
-        //[Route("delete")]
+        //[ActionName("delete")]
         //public void Delete(Answer answer)
         //{
         //    answerService.Delete(answer);
         //}
 
         //[HttpPut]
-        //[Route("update")]
+        //[ActionName("update")]
         //public void Update(Answer answer)
         //{
         //    answerService.Update(answer);

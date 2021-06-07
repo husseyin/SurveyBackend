@@ -10,8 +10,8 @@ namespace Business.Abstract
     public interface IQuestionService
     {
         IEnumerable<Question> GetAll();
-        //void Add(Question question);
-        //void Delete(Question question);
+        void Add(Question question);
+        void Delete(Question question);
         //void Update(Question question);
     }
 }

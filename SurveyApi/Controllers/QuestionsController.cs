@@ -16,28 +16,28 @@ namespace SurveyApi.Controllers
         IQuestionService questionService = new QuestionManager(new EfQuestionDal());
 
         [HttpGet]
-        [Route("getall")]
+        [ActionName("getall")]
         public IEnumerable<Question> GetAll()
         {
             return questionService.GetAll();
         }
 
-        //[HttpPost]
-        //[Route("add")]
-        //public void Add(Question question)
-        //{
-        //    questionService.Add(question);            
-        //}
+        [HttpPost]
+        [ActionName("add")]
+        public void Add(Question question)
+        {
+            questionService.Add(question);
+        }
 
-        //[HttpDelete]
-        //[Route("delete")]
-        //public void Delete(Question question)
-        //{
-        //    questionService.Delete(question);
-        //}
+        [HttpPost]
+        [ActionName("delete")]
+        public void Delete(Question question)
+        {
+            questionService.Delete(question);
+        }
 
         //[HttpPut]
-        //[Route("update")]
+        //[ActionName("update")]
         //public void Update(Question question)
         //{
         //    questionService.Update(question);

@@ -23,15 +23,15 @@ namespace Business.Concrete
             return _questionDal.GetAll();
         }
 
-        //public void Add(Question question)
-        //{
-        //    _questionDal.Add(question);
-        //}
+        public void Add(Question question)
+        {
+            _questionDal.Add(question);
+        }
 
-        //public void Delete(Question question)
-        //{
-        //    _questionDal.Delete(question);
-        //}
+        public void Delete(Question question)
+        {
+            _questionDal.Delete(question);
+        }
 
         //public void Update(Question question)
         //{
