@@ -10,6 +10,8 @@ namespace Business.Abstract
     public interface IUserAnswerService
     {
         IEnumerable<UserAnswer> GetAll();
+        IEnumerable<UserAnswer> GetUserAnswerByQuestionId(int questionId);
+        IEnumerable<object> GetCountAnswerByQuestionId(int questionId);
         void Add(UserAnswer userAnswer);
         //void Delete(UserAnswer userAnswer);
         //void Update(UserAnswer userAnswer);

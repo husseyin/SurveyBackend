@@ -23,6 +23,11 @@ namespace Business.Concrete
             return _questionDal.GetAll();
         }
 
+        public IEnumerable<Question> GetByCompanyId(int companyId)
+        {
+            return _questionDal.GetAll(c => c.CompanyId == companyId);
+        }
+
         public void Add(Question question)
         {
             _questionDal.Add(question);

@@ -16,24 +16,16 @@ namespace ConsoleUI
         {
             IUserAnswerService userAnswerService = new UserAnswerManager(new EfUserAnswerDal());
 
-            var resultUserAnswer = userAnswerService.GetAll();
 
-            foreach (var userAnswer in resultUserAnswer)
+            var result = from u in userAnswerService.GetAll()
+                         orderby u.AnswerId
+                         group u by u.AnswerId into g
+                         select new { AnswerId = g.Key, Count = g.Where(q => q.QuestionId == 87).Count() };
+
+            foreach (var item in result)
             {
-                Console.WriteLine("SoruId: " + userAnswer.QuestionId);
-                Console.WriteLine("CevapId: " + userAnswer.QuestionId);
-                Console.WriteLine("Açıklama: " + userAnswer.Description);
+                Console.Write(item);
             }
-
-            var demo = new UserAnswer
-            {
-                AnswerId = 2,
-                QuestionId = 3,
-                Description = "demo"
-
-            };
-
-            userAnswerService.Add(demo);
 
             Console.ReadKey();
         }

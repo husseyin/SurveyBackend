@@ -19,19 +19,31 @@ namespace DataAccess.Concrete
                 var result = from u in context.UserAnswers
                              join q in context.Questions
                              on u.QuestionId equals q.Id
-
                              join a in context.Answers
                              on u.AnswerId equals a.Id
 
                              select new UserAnswer
                              {
                                  Id = u.Id,
-                                 QuestionId = q.Id,
-                                 AnswerId = q.Id,
+                                 QuestionId = q.Id,                                 
+                                 AnswerId = a.Id,                    
                                  Description = u.Description
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
             }
+        }
+
+        public IEnumerable<object> GetCountAnswerByQuestionId(int questionId)
+        {
+            using (SurveyContext context = new SurveyContext())
+            {
+                var result = from u in context.UserAnswers
+                             orderby u.AnswerId
+                             group u by u.AnswerId into grp                             
+                             select new { AnswerId = grp.Key, Count = grp.Where(q => q.QuestionId == questionId).Count() };
+
+                return result.ToList();
+            }            
         }
     }
 }

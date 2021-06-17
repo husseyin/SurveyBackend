@@ -51,11 +51,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAnswerDal.cs" />
+    <Compile Include="Abstract\ICompanyDal.cs" />
     <Compile Include="Abstract\IUserAnswerDal.cs" />
     <Compile Include="Abstract\IQuestionDal.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
+    <Compile Include="Concrete\EfCompanyDal.cs" />
     <Compile Include="Concrete\EfUserAnswerDal.cs" />
     <Compile Include="Concrete\EfQuestionDal.cs" />
     <Compile Include="Concrete\EfAnswerDal.cs" />
+    <Compile Include="Concrete\EfUserDal.cs" />
     <Compile Include="Concrete\SurveyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

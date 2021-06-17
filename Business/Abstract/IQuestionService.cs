@@ -10,6 +10,7 @@ namespace Business.Abstract
     public interface IQuestionService
     {
         IEnumerable<Question> GetAll();
+        IEnumerable<Question> GetByCompanyId(int companyId);
         void Add(Question question);
         void Delete(Question question);
         //void Update(Question question);

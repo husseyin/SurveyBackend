@@ -16,28 +16,43 @@ namespace SurveyApi.Controllers
         IUserAnswerService userAnswerService = new UserAnswerManager(new EfUserAnswerDal());
 
         [HttpGet]
-        [Route("getall")]
+        [ActionName("getall")]
         public IEnumerable<UserAnswer> GetAll()
         {
             return userAnswerService.GetAll();
         }
 
+        [HttpGet]
+        [ActionName("getuseranswerbyquestionid")]
+        public IEnumerable<UserAnswer> GetUserAnswerByQuestionId(int questionId)
+        {
+            return userAnswerService.GetUserAnswerByQuestionId(questionId);
+        }
+
+        [HttpGet]
+        [ActionName("getcountanswerbyquestionid")]
+        public IEnumerable<object> GetCountAnswerByQuestionId(int questionId)
+        {
+            return userAnswerService.GetCountAnswerByQuestionId(questionId);
+        }
+
+
         [HttpPost]
-        [Route("add")]
+        [ActionName("add")]
         public void Add(UserAnswer userAnswer)
         {
             userAnswerService.Add(userAnswer);
         }
 
         //[HttpDelete]
-        //[Route("delete")]
+        //[ActionName("delete")]
         //public void Delete(UserAnswer userAnswer)
         //{
         //    userAnswerService.Delete(userAnswer);
         //}
 
         //[HttpPut]
-        //[Route("update")]
+        //[ActionName("update")]
         //public void Update(UserAnswer userAnswer)
         //{
         //    userAnswerService.Update(userAnswer);

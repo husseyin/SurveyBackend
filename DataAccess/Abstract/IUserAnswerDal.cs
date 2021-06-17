@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface IUserAnswerDal : IEntityRepository<UserAnswer>
     {
         IEnumerable<UserAnswer> GetUserAnswers(Expression<Func<UserAnswer, bool>> filter = null);
+        IEnumerable<object> GetCountAnswerByQuestionId(int questionId);
     }
 }

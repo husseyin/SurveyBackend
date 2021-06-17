@@ -22,6 +22,13 @@ namespace SurveyApi.Controllers
             return questionService.GetAll();
         }
 
+        [HttpGet]
+        [ActionName("getbycompanyid")]
+        public IEnumerable<Question> GetByCompanyId(int companyId)
+        {
+            return questionService.GetByCompanyId(companyId);
+        }
+
         [HttpPost]
         [ActionName("add")]
         public void Add(Question question)

@@ -23,6 +23,16 @@ namespace Business.Concrete
             return _userAnswerDal.GetAll();
         }
 
+        public IEnumerable<UserAnswer> GetUserAnswerByQuestionId(int questionId)
+        {
+            return _userAnswerDal.GetAll(q => q.QuestionId == questionId);
+        }
+
+        public IEnumerable<object> GetCountAnswerByQuestionId(int questionId)
+        {
+            return _userAnswerDal.GetCountAnswerByQuestionId(questionId);
+        }
+
         public void Add(UserAnswer userAnswer)
         {
             _userAnswerDal.Add(userAnswer);
